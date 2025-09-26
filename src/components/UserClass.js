@@ -22,8 +22,8 @@ class UserClass extends React.Component {
     const { name, location } = this.state.userInfo;
     const { count, count2 } = this.state;
     return (
-      <div className="user-card">
-        <h1>
+      <div className="flex flex-col text-gray-600">
+        {/* <h1>
           Count : {count}
           <button
             onClick={() => {
@@ -34,9 +34,9 @@ class UserClass extends React.Component {
           >
             Increase Count
           </button>
-        </h1>
+        </h1> */}
         <h2>Name: {name}</h2>
-        <h3>Location: {location}</h3>
+        <h3>Location: Dubai, UAE</h3>
         <h4>Contact: @shiprakus@gmail.com</h4>
       </div>
     );

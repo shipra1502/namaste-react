@@ -2,12 +2,12 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (resData) => {
   return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="p-4 m-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
       <img
-        className="res-logo"
+        className="rounded-lg"
         src={CDN_URL + resData.resData.cloudinaryImageId}
       ></img>
-      <h3>{resData.resData.name}</h3>
+      <h3 className="font-bold py-4 text-xl">{resData.resData.name}</h3>
       <h3>{resData.resData.cuisines.join(", ")}</h3>
 
       <h3>{"*" + resData.resData.avgRating}</h3>
