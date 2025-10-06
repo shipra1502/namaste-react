@@ -1,6 +1,10 @@
 import { CDN_URL } from "../utils/constants";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (resData) => {
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser);
   return (
     <div className="p-4 m-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
       <img
@@ -13,6 +17,7 @@ const RestaurantCard = (resData) => {
       <h3>{"*" + resData?.resData?.avgRating}</h3>
 
       <h3>{resData?.resData?.sla?.deliveryTime + "min"}</h3>
+      <h3>User: {loggedInUser}</h3>
     </div>
   );
 };

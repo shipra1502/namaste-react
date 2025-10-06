@@ -1,8 +1,10 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -56,7 +58,7 @@ const Body = () => {
       </div>
     );
   }
-
+  const { loggedInUser, setUserInfo } = useContext(UserContext);
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -87,7 +89,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="flex items-centers m-4 p-4">
+        <div className="m-4 p-4">
           <button
             className="px-4 py-2 m-4 bg-gray-100  hover:bg-gray-200 rounded-lg cursor-pointer"
             onClick={() => {
@@ -100,6 +102,16 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
+
+        {/* <div className="my-10 p-4">
+          <label>UserName: </label>
+          <input
+            type="text"
+            value={loggedInUser}
+            className="border border-black rounded-lg px-2"
+            onChange={(e) => setUserInfo(e.target.value)}
+          />
+        </div> */}
       </div>
       <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => (

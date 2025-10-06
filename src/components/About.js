@@ -1,3 +1,4 @@
+import UserContext from "../utils/UserContext";
 import UserClass from "./UserClass";
 import { Component } from "react";
 
@@ -8,6 +9,14 @@ class AboutClass extends Component {
         <div className="p-8 w-1/2 shadow-xl bg-gray-50 flex flex-col items-center justify-center text-center rounded-2xl mt-8">
           <h1 className="font-bold text-4xl mb-4">About Us</h1>
           <h2 className="mb-6 text-gray-600">
+            <div>
+              LoggedIn User
+              <UserContext.Consumer>
+                {({ loggedInUser }) => (
+                  <h1 className="text-xl font-bold">{loggedInUser}</h1>
+                )}
+              </UserContext.Consumer>
+            </div>
             This is a food ordering app where we can order food from various
             restaurants
           </h2>
